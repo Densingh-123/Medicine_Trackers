@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../config/FirebaseConfig';
+import { auth, db } from '../../config/FirebaseConfig'; // Import db from FirebaseConfig
 import {
   StyleSheet,
   Text,
@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { setLocalStorage } from '../../service/Storage';
+import { doc, setDoc } from 'firebase/firestore'; // Import Firestore functions
 
 const Login = () => {
   const router = useRouter();
@@ -27,11 +28,19 @@ const Login = () => {
     }
 
     signInWithEmailAndPassword(auth, email, password)
-      .then(async(userCredential) => {
+      .then(async (userCredential) => {
         // Signed in 
         const user = userCredential.user;
         console.log(user);
-       await setLocalStorage('userDetail',user);
+        await setLocalStorage('userDetail', user);
+
+        // Store user email in Firestore
+        const userRef = doc(db, 'users', user.uid); // Use user.uid as the document ID
+        await setDoc(userRef, {
+          email: user.email,
+          lastLogin: new Date().toISOString(),
+        }, { merge: true }); // Merge to avoid overwriting existing data
+
         ToastAndroid.show("Welcome", ToastAndroid.BOTTOM);
         router.push('(tabs)/Home');
       })
