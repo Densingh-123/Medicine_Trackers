@@ -1,7 +1,15 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "jsx": "react",
+    "esModuleInterop": true,
     "strict": true,
+    "moduleResolution": "node",
+    "target": "es6",
+    "lib": ["dom", "es6"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "paths": {
       "@/*": [
         "./*"
@@ -12,6 +20,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-, "app/(tabs)/index.jsx", "app/(tabs)/_layout.jsx", "constants/Colors.jsx"  ]
+    "expo-env.d.ts",
+    "app/(tabs)/index.jsx",
+    "app/(tabs)/_layout.jsx",
+    "constants/Colors.jsx"
+  ]
 }

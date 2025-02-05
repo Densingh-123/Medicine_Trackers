@@ -1,81 +1,99 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import React from 'react';
 
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import AntDesign from '@expo/vector-icons/AntDesign';
-
-const Profile = () => {
+const MediTrackerIntro = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>Profile</Text>
-      <Image
-        source={{
-          uri: 'https://static.vecteezy.com/system/resources/thumbnails/031/586/359/small/many-men-experience-the-widespread-phenomenon-of-loneliness-in-society-ai-generated-photo.jpg',
-        }}
-        style={styles.img}
-      />
-      <TouchableOpacity style={styles.button} onPress={() => console.log('Add New Medication')}>
-        <AntDesign name="pluscircle" size={24} color="#fff" />
-        <Text style={styles.buttonText}>Add a New Medication</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => console.log('Logout')}>
-        <AntDesign name="logout" size={24} color="#fff" />
-        <Text style={styles.buttonText}>Logout</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => console.log('My Medication')}>
-        <AntDesign name="medicinebox" size={24} color="#fff" />
-        <Text style={styles.buttonText}>My Medication</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => console.log('History')}>
-        <FontAwesome name="clock-o" size={24} color="#fff" />
-        <Text style={styles.buttonText}>History</Text>
-      </TouchableOpacity>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.profileContainer}>
+        <Image 
+          source={{ uri: 'https://tateeda.com/wp-content/uploads/2022/07/img-2-2.png' }} 
+          style={styles.headerImage} 
+        />
+        <Text style={styles.name}>Welcome to MediTracker</Text>
+      </View>
+
+      <View style={styles.infoContainer}>
+        <Text style={styles.description}>
+          MediTracker helps you manage and track all your medications effectively. It provides reminders, tracks your medication history, and allows you to add personal notes.
+        </Text>
+        <Text style={styles.serviceTitle}>Key Features:</Text>
+        <Text style={styles.serviceText}>✅ Add Medication - Log new prescriptions with details.</Text>
+        <Text style={styles.serviceText}>✅ My Medications - View and manage your current medications.</Text>
+        <Text style={styles.serviceText}>✅ Medication History - Keep track of past doses.</Text>
+        <Text style={styles.serviceText}>✅ Comments - Add notes or doctor's advice.</Text>
+        <Text style={styles.serviceText}>✅ Clear Comments - Delete notes when no longer needed.</Text>
+        <Text style={styles.serviceText}>✅ Reminders - Get notifications for each dose.</Text>
+        <Text style={styles.serviceText}>✅ Medication Guide - Detailed usage and side effects info.</Text>
+      </View>
+
+      <View style={styles.additionalInfo}>
+        <Text style={styles.infoText}>📍 Set reminders to never miss a dose.</Text>
+        <Text style={styles.infoText}>📞 Contact support for medical assistance.</Text>
+        <Text style={styles.infoText}>⭐ Rate and review medications for better guidance.</Text>
+        <Text style={styles.infoText}>💬 Add and manage personal comments with ease.</Text>
+      </View>
+    </ScrollView>
   );
 };
 
-export default Profile;
+export default MediTrackerIntro;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 25,
+    flexGrow: 1,
+    padding: 20,
+    backgroundColor: '#f5f5f5',
     alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    backgroundColor: '#e0f7fa', // Light blue background
   },
-  heading: {
-    fontSize: 38,
-    color: '#007bb5', // Dark blue
+  profileContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  headerImage: {
+    width: 380,
+    height: 250,
+    marginBottom: 10,
+  },
+  name: {
+    fontSize: 22,
     fontWeight: 'bold',
+    color: '#333',
+  },
+  infoContainer: {
+    width: '100%',
+    backgroundColor: '#fff',
+    padding: 15,
+    borderRadius: 10,
+    elevation: 5,
     marginBottom: 20,
   },
-  img: {
-    width: 180,
-    height: 180,
-    borderRadius: 100, // Circular image
-    borderWidth: 2,
-    borderColor: '#007bb5', // Blue border
-    marginBottom: 20,
+  description: {
+    fontSize: 16,
+    color: '#666',
+    marginBottom: 10,
   },
-  button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#007bb5', // Blue background for buttons
-    borderRadius: 8,
-    padding: 12,
-    marginVertical: 10,
-    width: '80%', // Ensure the button takes the full width
-    justifyContent: 'center',
-    opacity: 0.9, // Slight opacity for hover effect
-  },
-  buttonText: {
-    color: '#fff',
+  serviceTitle: {
     fontSize: 18,
-    marginLeft: 10,
-    fontWeight: '500',
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 10,
   },
-  buttonHovered: {
-    opacity: 1, // On hover, make the button fully opaque
-  }
+  serviceText: {
+    fontSize: 16,
+    color: '#444',
+    marginBottom: 5,
+  },
+  additionalInfo: {
+    width: '100%',
+    backgroundColor: '#fff',
+    padding: 15,
+    borderRadius: 10,
+    elevation: 5,
+    marginBottom: 20,
+  },
+  infoText: {
+    fontSize: 16,
+    color: '#444',
+    marginBottom: 5,
+  },
 });
