@@ -1,34 +1,38 @@
 {
   "expo": {
-    "name": "medi-track",
+    "name": "Medi-Track",
     "slug": "medi-track",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "https://cdn-icons-png.flaticon.com/128/8059/8059745.png",
+    "scheme": "medi-track",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.densingh.meditrack"
     },
     "android": {
+      "package": "com.densingh.meditrack",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "https://cdn-icons-png.flaticon.com/128/8059/8059745.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "https://cdn-icons-png.flaticon.com/128/8059/8059745.png"
+    },
+    "splash": {
+      "image": "https://cdn-icons-png.flaticon.com/128/8059/8059745.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
@@ -36,6 +40,11 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7ca2041a-284a-4b37-b9c3-c3a639924517"
+      }
     }
   }
 }
