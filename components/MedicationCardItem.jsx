@@ -46,7 +46,7 @@ const MedicationCardItem = ({ medicine }) => {
         </View>
 
         {/* View Details Button */}
-        <TouchableOpacity onPress={handlePress} style={styles.viewDetailsButton}>
+        <TouchableOpacity  style={styles.viewDetailsButton}>
           <AntDesign name="arrowright" size={24} color="#1e90ff" />
         </TouchableOpacity>
       </View>
